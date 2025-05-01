@@ -1,0 +1,13 @@
+{
+  "name": "fastapi-tanstack",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3"
+  }
+}
