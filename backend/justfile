@@ -7,10 +7,10 @@ dev:
     uvicorn src.app.main:app --reload --host 0.0.0.0 --port 8000
 
 format:
-    ruff --fix .
+    ruff format .
 
 lint:
-    ruff .
+    ruff check .
 
 clean:
     rm -rf dist
