@@ -8,5 +8,6 @@
   "files.readonlyInclude": {
     "**/routeTree.gen.ts": true
   },
-  "prettier.configPath": "frontend/.prettier.config.mjs",
+  "prettier.configPath": "${workspaceFolder}/frontend/.prettier.config.mjs",
+  "mypy-type-checker.cwd": "${workspaceFolder}/backend"
 }
