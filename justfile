@@ -3,7 +3,6 @@ set dotenv-load := true
 
 mod backend "./backend/justfile"
 
-# Default command to list all available commands
 default:
     @just --list
 

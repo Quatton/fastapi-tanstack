@@ -1,11 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.api import v1_router
 
 app = FastAPI(
     title="FastAPI Backend",
     description="Backend API for FastAPI-Tanstack project",
     version="1.0.0",
 )
+
+app.include_router(v1_router)
 
 app.add_middleware(
     CORSMiddleware,
@@ -14,8 +17,3 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run(app, host="0.0.0.0", port=8000)

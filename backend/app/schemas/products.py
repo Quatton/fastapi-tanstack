@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 
-class ListProductsResponseProduct(BaseModel):
+class Product(BaseModel):
     id: int
     name: str
     description: str
@@ -9,7 +9,7 @@ class ListProductsResponseProduct(BaseModel):
 
 
 class ListProductsResponse(BaseModel):
-    products: list[ListProductsResponseProduct]
+    products: list[Product]
     total: int
     page: int
     page_size: int
