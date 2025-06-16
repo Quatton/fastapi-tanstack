@@ -1,11 +1,6 @@
 from pydantic import BaseModel
 
-
-class Product(BaseModel):
-    id: int
-    name: str
-    description: str
-    price: float
+from app.models.products import Product
 
 
 class ListProductsResponse(BaseModel):

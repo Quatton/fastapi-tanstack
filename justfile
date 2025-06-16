@@ -13,3 +13,7 @@ format:
 lint:
     @just backend::lint
     bun run --filter frontend lint
+
+gen:
+    @just backend::gen
+    bun run --filter frontend gen
