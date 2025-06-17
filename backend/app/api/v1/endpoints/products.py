@@ -9,8 +9,11 @@ router = APIRouter(
 
 
 @router.get("/")
-async def list_products() -> ListProductsResponse:
+async def list_products(
+    page: int = 1,
+    page_size: int = 10,
+) -> ListProductsResponse:
     """
     Get all products.
     """
-    return ListProductsResponse(products=[], total=0, page=1, page_size=10)
+    return ListProductsResponse(products=[], total=0, page=page, page_size=page_size)

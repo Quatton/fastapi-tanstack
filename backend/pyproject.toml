@@ -4,7 +4,12 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = ["fastapi>=0.115.12", "mypy>=1.15.0", "pydantic>=2.11.4"]
+dependencies = [
+  "fastapi>=0.115.12",
+  "mypy>=1.15.0",
+  "pydantic>=2.11.4",
+  "sqlmodel>=0.0.24",
+]
 
 [tool.uv]
 dev-dependencies = ["ruff>=0.11.7", "uvicore[standard]>=0.2.3"]
