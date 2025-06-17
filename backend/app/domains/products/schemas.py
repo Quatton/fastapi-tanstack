@@ -1,20 +1,16 @@
 import uuid
-from pydantic import BaseModel
-
-from .models import Product
+from pydantic import BaseModel, ConfigDict
 
 
 class ProductInfo(BaseModel):
+    model_config = ConfigDict(
+        from_attributes=True,
+    )
+
     id: uuid.UUID
     name: str
     description: str | None = None
     price: float
-
-    @classmethod
-    def from_orm(cls, obj: Product):
-        return cls(
-            id=obj.id, name=obj.name, description=obj.description, price=obj.price
-        )
 
 
 class ListProductsResponse(BaseModel):
@@ -22,3 +18,13 @@ class ListProductsResponse(BaseModel):
     page: int
     page_size: int
     products: list[ProductInfo]
+
+
+class CreateProductRequest(BaseModel):
+    name: str
+    description: str | None = None
+    price: float
+
+
+class CreateProductResponse(ProductInfo):
+    pass

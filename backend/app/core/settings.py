@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 def get_database_url() -> str:
-    url = os.environ.get("POSTGRES_DATABASE_URL")
+    url = os.environ.get("DATABASE_URL")
     if url:
         return url
 
@@ -14,8 +14,9 @@ def get_database_url() -> str:
     db = os.environ.get("POSTGRES_DB", "mydb")
     port = os.environ.get("POSTGRES_PORT", "5432")
     host = os.environ.get("POSTGRES_HOST", "localhost")
+    postgres_driver = os.environ.get("POSTGRES_DRIVER", "asyncpg")
 
-    return f"postgresql://{user}:{password}@{host}:{port}/{db}"
+    return f"postgresql+{postgres_driver}://{user}:{password}@{host}:{port}/{db}"
 
 
 class Settings(BaseSettings):
@@ -24,7 +25,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env")
 
     DEBUG: bool = os.environ.get("DEBUG", "True").lower() in ("true", "1", "t")
-    POSTGRES_DATABASE_URL: str = get_database_url()
+    DATABASE_URL: str = get_database_url()
 
 
 @lru_cache

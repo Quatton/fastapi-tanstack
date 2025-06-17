@@ -9,13 +9,13 @@ dependencies = [
   "mypy>=1.15.0",
   "pydantic-settings>=2.9.1",
   "pydantic>=2.11.4",
-  "sqlalchemy>=2.0.41",
+  "sqlalchemy[asyncio]>=2.0.41",
 ]
 
 [tool.uv]
 dev-dependencies = [
   "alembic>=1.16.2",
-  "psycopg2-binary>=2.9.10",
+  "asyncpg>=0.30.0",
   "ruff>=0.11.7",
   "uvicorn[standard]>=0.34.3",
 ]
