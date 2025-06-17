@@ -10,5 +10,12 @@
   },
   "prettier.configPath": "${workspaceFolder}/frontend/.prettier.config.mjs",
   "mypy-type-checker.cwd": "${nearestConfig}",
-  "python.analysis.importFormat": "relative",
+  
+  "python.analysis.packageIndexDepths": [
+    {
+      "name": "sqlalchemy",
+      "depth": 2,
+      "includeAllSymbols": true
+    }
+  ]
 }

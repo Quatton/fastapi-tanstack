@@ -2,6 +2,7 @@
 set dotenv-load := true
 
 mod backend "./backend/justfile"
+mod db "./db/justfile"
 
 default:
     @just --list
@@ -17,3 +18,6 @@ lint:
 gen:
     @just backend::gen
     bun run --filter frontend gen
+
+studio:
+    bun run --filter db db:pull && bun run --filter db studio

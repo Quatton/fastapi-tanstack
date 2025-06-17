@@ -1,0 +1,4 @@
+set dotenv-load := true
+
+pull:
+    bun run db:pull

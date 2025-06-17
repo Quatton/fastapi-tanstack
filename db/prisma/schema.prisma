@@ -1,0 +1,15 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model alembic_version {
+  version_num String @id(map: "alembic_version_pkc") @db.VarChar(32)
+}
+
+model products {
+  id          String  @id @db.Uuid
+  name        String  @db.VarChar
+  description String? @db.VarChar
+  price       Float
+}

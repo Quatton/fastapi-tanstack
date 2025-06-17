@@ -1,7 +1,7 @@
 import uuid
 from pydantic import BaseModel
 
-from app.models.products import Product
+from .models import Product
 
 
 class ProductInfo(BaseModel):

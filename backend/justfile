@@ -17,5 +17,8 @@ clean:
     rm -rf *.egg-info
     find . -type d -name "__pycache__" -exec rm -rf {} +
 
-gen:
-    python -m scripts.schema
+gen-schema:
+    uv run python -m scripts.schema
+
+db-push:
+    uv run alembic upgrade head
