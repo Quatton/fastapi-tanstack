@@ -1,18 +1,16 @@
 import uuid
 from fastapi import APIRouter, Depends
-from sqlalchemy import select
-from sqlalchemy.sql.functions import count
 
 from app.domains.products.schemas import (
     ListProductsResponse,
     CreateProductRequest,
     CreateProductResponse,
-    ProductInfo,
 )
 from fastapi import HTTPException, status
 
 from app.common.dependencies import DBSessionDep, get_db
 from app.domains.products.models import Product
+from app.domains.products.repository import ProductRepository
 
 router = APIRouter(
     prefix="/v1/products",
@@ -34,25 +32,7 @@ async def list_products(
     """
     Get all products.
     """
-    products = (
-        await db.scalars(
-            select(Product).offset((page - 1) * page_size).limit(page_size)
-        )
-    ).all()
-
-    total = await db.scalar(select(count(Product.id)))
-
-    if total is None:
-        total = 0
-
-    page_size = len(products)
-
-    return ListProductsResponse(
-        total=total,
-        page=page,
-        page_size=page_size,
-        products=[ProductInfo.model_validate(product) for product in products],
-    )
+    return await ProductRepository(db).list_products(page=page, page_size=page_size)
 
 
 @router.post(
@@ -75,10 +55,8 @@ async def create_product(
     )
 
     try:
-        db.add(new_product)
+        await ProductRepository(db).add_product(new_product)
         await db.commit()
-        await db.refresh(new_product)
-
         return CreateProductResponse.model_validate(new_product)
     except Exception as e:
         raise HTTPException(
