@@ -19,6 +19,7 @@
     "@tanstack/react-router": "^1.114.3",
     "@tanstack/react-router-devtools": "^1.114.3",
     "@tanstack/router-plugin": "^1.114.3",
+    "api": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.476.0",
@@ -35,6 +36,7 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
+    "config": "workspace:*",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.0.0",
     "jsdom": "^26.0.0",
@@ -45,7 +47,6 @@
     "vite": "^6.1.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.0.5",
-    "web-vitals": "^4.2.4",
-    "config": "workspace:*"
+    "web-vitals": "^4.2.4"
   }
 }

@@ -8,9 +8,7 @@
   "files.readonlyInclude": {
     "**/routeTree.gen.ts": true
   },
-  "prettier.configPath": "${workspaceFolder}/frontend/.prettier.config.mjs",
   "mypy-type-checker.cwd": "${nearestConfig}",
-  
   "python.analysis.packageIndexDepths": [
     {
       "name": "sqlalchemy",

@@ -11,7 +11,8 @@
     "typescript": "^5.8.3"
   },
   "scripts": {
-    "dev": "bun run --filter frontend dev"
+    "dev": "bun run --filter frontend dev",
+    "format": "bun run --filter './*/**' format"
   },
   "trustedDependencies": [
     "@tailwindcss/oxide"
