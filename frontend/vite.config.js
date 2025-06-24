@@ -1,12 +1,12 @@
 import { defineConfig } from "vite";
 import viteReact from "@vitejs/plugin-react";
 
-import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [
-    TanStackRouterVite({ autoCodeSplitting: true }),
+    tanstackRouter({ autoCodeSplitting: true }),
     viteReact(),
     tsConfigPaths(),
   ],

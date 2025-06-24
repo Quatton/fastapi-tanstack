@@ -4,9 +4,16 @@
   "private": true,
   "workspaces": [
     "frontend",
-    "db"
+    "db",
+    "packages/**"
   ],
   "devDependencies": {
     "typescript": "^5.8.3"
-  }
+  },
+  "scripts": {
+    "dev": "bun run --filter frontend dev"
+  },
+  "trustedDependencies": [
+    "@tailwindcss/oxide"
+  ]
 }

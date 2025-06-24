@@ -1,0 +1,10 @@
+{
+  "name": "config",
+  "type": "module",
+  "exports": {
+    "./eslint": "./src/eslintBase.mjs",
+    "./eslint:react": "./src/eslintReact.mjs",
+    "./prettier": "./src/prettierBase.mjs",
+    "./prettier:react": "./src/prettierReact.mjs"
+  }
+}

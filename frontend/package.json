@@ -9,7 +9,8 @@
     "serve": "vite preview",
     "test": "vitest run",
     "format": "prettier --write .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.6",
@@ -44,6 +45,7 @@
     "vite": "^6.1.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.0.5",
-    "web-vitals": "^4.2.4"
+    "web-vitals": "^4.2.4",
+    "config": "workspace:*"
   }
 }
