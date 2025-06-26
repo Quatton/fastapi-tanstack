@@ -19,5 +19,10 @@
     "esbuild",
     "msw",
     "prisma"
-  ]
+  ],
+  "msw": {
+    "workerDirectory": [
+      "frontend/public"
+    ]
+  }
 }
