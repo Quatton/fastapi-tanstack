@@ -3,11 +3,7 @@ import * as React from "react";
 
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import {
-  createFormHook,
-  createFormHookContexts,
-  useStore,
-} from "@tanstack/react-form";
+import { createFormHook, createFormHookContexts, useStore } from "@tanstack/react-form";
 
 const {
   fieldContext,
@@ -33,20 +29,14 @@ type FormItemContextValue = {
   id: string;
 };
 
-const FormItemContext = React.createContext<FormItemContextValue>(
-  {} as FormItemContextValue,
-);
+const FormItemContext = React.createContext<FormItemContextValue>({} as FormItemContextValue);
 
 function FormItem({ className, ...props }: React.ComponentProps<"div">) {
   const id = React.useId();
 
   return (
     <FormItemContext.Provider value={{ id }}>
-      <div
-        data-slot="form-item"
-        className={cn("grid gap-2", className)}
-        {...props}
-      />
+      <div data-slot="form-item" className={cn("grid gap-2", className)} {...props} />
     </FormItemContext.Provider>
   );
 }
@@ -72,10 +62,7 @@ const useFieldContext = () => {
   };
 };
 
-function FormLabel({
-  className,
-  ...props
-}: React.ComponentProps<typeof Label>) {
+function FormLabel({ className, ...props }: React.ComponentProps<typeof Label>) {
   const { formItemId, errors } = useFieldContext();
 
   return (
@@ -90,17 +77,14 @@ function FormLabel({
 }
 
 function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
-  const { errors, formItemId, formDescriptionId, formMessageId } =
-    useFieldContext();
+  const { errors, formItemId, formDescriptionId, formMessageId } = useFieldContext();
 
   return (
     <Slot
       data-slot="form-control"
       id={formItemId}
       aria-describedby={
-        !errors.length
-          ? `${formDescriptionId}`
-          : `${formDescriptionId} ${formMessageId}`
+        !errors.length ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`
       }
       aria-invalid={!!errors.length}
       {...props}
@@ -123,9 +107,7 @@ function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
 
 function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
   const { errors, formMessageId } = useFieldContext();
-  const body = errors.length
-    ? String(errors.at(0)?.message ?? "")
-    : props.children;
+  const body = errors.length ? String(errors.at(0)?.message ?? "") : props.children;
   if (!body) return null;
 
   return (
