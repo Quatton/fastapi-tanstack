@@ -24,8 +24,8 @@ Tanstack Router は TypeScript の型システムを活用して、ルーティ�
 
 - `main.tsx` ではルーターの定義と、API モック用の MSW のセットアップを行っている。
 - `routeTree.gen.ts` は Vite プラグインによって自動生成されるルート定義ファイルである。
-    - React Router の `flatRoutes` のように階層的なルート定義はできないが、このファイル内で階層的なルートが自動生成される。
-    - 自動生成を使わない場合は、各ルートを手動で登録する必要がある。
+  - React Router の `flatRoutes` のように階層的なルート定義はできないが、このファイル内で階層的なルートが自動生成される。
+  - 自動生成を使わない場合は、各ルートを手動で登録する必要がある。
 
 このように、Tanstack Router を使うことで型安全かつ効率的にルーティングを管理できる。
 
@@ -50,4 +50,4 @@ interface ImportMetaEnv {
 - `lib`: [ユーティリティ関数やヘルパー関数](./lib.md)を格納するディレクトリ。
 - `msw`: [MSW (Mock Service Worker)](./msw.md)を格納するディレクトリ。
 - `routes`: [ルートコンポーネント](./routes.md)を格納するディレクトリ。
--  `styles.css`: [Tailwind CSS](./tailwind.md)のスタイルを定義するファイル。
+- `styles.css`: [Tailwind CSS](./tailwind.md)のスタイルを定義するファイル。
