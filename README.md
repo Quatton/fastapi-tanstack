@@ -4,16 +4,20 @@
 
 チェックマークのないものは、まだ実装していないが、実装予定のものです。
 
+### 開発効率化 / CI
+- [x] [Justfile](https://github.com/casey/just) - Makefile の代替
 - [ ] GitHub Action
 - [ ] `devcontainer.json`
 
+### バックエンド
 - [x] [FastAPI](https://fastapi.tiangolo.com/)
 - [x] [uv](https://docs.astral.sh/uv/) - Package manager
 - [x] [SQLAlchemy](https://www.sqlalchemy.org/) - ORM
 - [x] [Alembic](https://alembic.sqlalchemy.org/en/latest/) - Database migration tool
+- [x] [Prisma](https://www.prisma.io/) - SQLAlchemy があるのに意外かもしれませんが、Prisma Studio やっぱり便利なので使います。**ORM としては使いません。**
 - [ ] [Pytest](https://docs.pytest.org/en/stable/) - バックエンドのテスト
-- [x] [Prisma](https://www.prisma.io/) - 意外ですが、Prisma Studio やっぱり便利なので使います。**ORM としては使いません。**
 
+### フロントエンド
 - [x] [TanStack Router](https://tanstack.com/router/latest)
 - [x] [React](https://react.dev/)
 - [x] [Tailwind CSS](https://tailwindcss.com/)
@@ -22,7 +26,6 @@
 - [x] [Vite](https://vite.dev/) - フロントエンドのビルドツール
 - [x] [TanStack Query](https://tanstack.com/query/latest)
 - [x] [Bun](https://bun.sh/) - Package manager (Runtime は Node.js のまま)
-- [x] [Justfile](https://github.com/casey/just) - Makefile の代替
 - [x] [MSW](https://mswjs.io/) - Mock Service Worker
 - [x] [ESLint](https://eslint.org/) - JavaScript/TypeScript の linter
 - [x] [Prettier](https://prettier.io/) - コードフォーマッター
@@ -30,9 +33,8 @@
 
 ### テンプレートに含まれていないが、検討中
 
-- 認証ライブラリ
-- 画像・ファイルアップロード
-
+- 画像・ファイルアップロードのクライアント
+- 認証のクライアント
 
 ### テンプレートに含む予定がないが、おすすめの拡張
 
