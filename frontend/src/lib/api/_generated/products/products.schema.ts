@@ -5,40 +5,41 @@
  * Backend API for FastAPI-Tanstack project
  * OpenAPI spec version: 1.0.0
  */
-import { z as zod } from "zod";
+import {
+  z as zod
+} from 'zod';
+
 
 /**
  * Get all products.
  * @summary List Products
  */
-export const listProductsV1ProductsGetQueryPageDefault = 1;
-export const listProductsV1ProductsGetQueryPageSizeDefault = 10;
+export const listProductsV1ProductsGetQueryPageDefault = 1;export const listProductsV1ProductsGetQueryPageSizeDefault = 10;
 
 export const listProductsV1ProductsGetQueryParams = zod.object({
-  page: zod.number().default(listProductsV1ProductsGetQueryPageDefault),
-  page_size: zod.number().default(listProductsV1ProductsGetQueryPageSizeDefault),
-});
+  "page": zod.number().default(listProductsV1ProductsGetQueryPageDefault),
+  "page_size": zod.number().default(listProductsV1ProductsGetQueryPageSizeDefault)
+})
 
 export const listProductsV1ProductsGetResponse = zod.object({
-  total: zod.number(),
-  page: zod.number(),
-  page_size: zod.number(),
-  products: zod.array(
-    zod.object({
-      id: zod.string().uuid(),
-      name: zod.string(),
-      description: zod.string().or(zod.null()).optional(),
-      price: zod.number(),
-    })
-  ),
-});
+  "total": zod.number(),
+  "page": zod.number(),
+  "page_size": zod.number(),
+  "products": zod.array(zod.object({
+  "id": zod.string().uuid(),
+  "name": zod.string(),
+  "description": zod.string(),
+  "price": zod.number()
+}))
+})
 
 /**
  * Create a new product.
  * @summary Create Product
  */
 export const createProductV1ProductsPostBody = zod.object({
-  name: zod.string(),
-  description: zod.string().or(zod.null()).optional(),
-  price: zod.number(),
-});
+  "name": zod.string(),
+  "description": zod.string(),
+  "price": zod.number()
+})
+

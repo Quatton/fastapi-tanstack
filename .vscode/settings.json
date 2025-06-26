@@ -15,5 +15,6 @@
       "depth": 3,
       "includeAllSymbols": true
     }
-  ]
+  ],
+  "typescript.preferences.autoImportFileExcludePatterns": ["@radix-ui/**"]
 }

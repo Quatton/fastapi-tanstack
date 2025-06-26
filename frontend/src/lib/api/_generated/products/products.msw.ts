@@ -21,10 +21,7 @@ export const getListProductsV1ProductsGetResponseMock = (
     () => ({
       id: faker.string.uuid(),
       name: faker.string.alpha({ length: { min: 10, max: 20 } }),
-      description: faker.helpers.arrayElement([
-        faker.helpers.arrayElement([faker.string.alpha({ length: { min: 10, max: 20 } }), null]),
-        undefined,
-      ]),
+      description: faker.string.alpha({ length: { min: 10, max: 20 } }),
       price: faker.number.float({ min: undefined, max: undefined, fractionDigits: 2 }),
     })
   ),
@@ -36,10 +33,7 @@ export const getCreateProductV1ProductsPostResponseMock = (
 ): CreateProductResponse => ({
   id: faker.string.uuid(),
   name: faker.string.alpha({ length: { min: 10, max: 20 } }),
-  description: faker.helpers.arrayElement([
-    faker.helpers.arrayElement([faker.string.alpha({ length: { min: 10, max: 20 } }), null]),
-    undefined,
-  ]),
+  description: faker.string.alpha({ length: { min: 10, max: 20 } }),
   price: faker.number.float({ min: undefined, max: undefined, fractionDigits: 2 }),
   ...overrideResponse,
 });

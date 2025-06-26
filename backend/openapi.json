@@ -110,14 +110,7 @@
             "title": "Name"
           },
           "description": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
+            "type": "string",
             "title": "Description"
           },
           "price": {
@@ -128,6 +121,7 @@
         "type": "object",
         "required": [
           "name",
+          "description",
           "price"
         ],
         "title": "CreateProductRequest"
@@ -144,14 +138,7 @@
             "title": "Name"
           },
           "description": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
+            "type": "string",
             "title": "Description"
           },
           "price": {
@@ -163,6 +150,7 @@
         "required": [
           "id",
           "name",
+          "description",
           "price"
         ],
         "title": "CreateProductResponse"
@@ -223,14 +211,7 @@
             "title": "Name"
           },
           "description": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
+            "type": "string",
             "title": "Description"
           },
           "price": {
@@ -242,6 +223,7 @@
         "required": [
           "id",
           "name",
+          "description",
           "price"
         ],
         "title": "ProductInfo"

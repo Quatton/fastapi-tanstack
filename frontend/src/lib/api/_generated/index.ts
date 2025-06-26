@@ -7,13 +7,10 @@
  */
 
 export * from "./createProductRequest";
-export * from "./createProductRequestDescription";
 export * from "./createProductResponse";
-export * from "./createProductResponseDescription";
 export * from "./hTTPValidationError";
 export * from "./listProductsResponse";
 export * from "./listProductsV1ProductsGetParams";
 export * from "./productInfo";
-export * from "./productInfoDescription";
 export * from "./validationError";
 export * from "./validationErrorLocItem";
