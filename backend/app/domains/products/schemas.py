@@ -9,7 +9,7 @@ class ProductInfo(BaseModel):
 
     id: uuid.UUID
     name: str
-    description: str | None = None
+    description: str
     price: float
 
 
@@ -22,7 +22,7 @@ class ListProductsResponse(BaseModel):
 
 class CreateProductRequest(BaseModel):
     name: str
-    description: str | None = None
+    description: str
     price: float
 
 

@@ -1,0 +1,2 @@
+# Ignore generated files in frontend/src/lib/api/_generated/
+/frontend/src/lib/api/_generated/* linguist-generated=true

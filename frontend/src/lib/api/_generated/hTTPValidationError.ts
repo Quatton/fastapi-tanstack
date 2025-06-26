@@ -5,11 +5,8 @@
  * Backend API for FastAPI-Tanstack project
  * OpenAPI spec version: 1.0.0
  */
-import type { Product } from "./product";
+import type { ValidationError } from "./validationError";
 
-export interface ListProductsResponse {
-  products: Product[];
-  total: number;
-  page: number;
-  page_size: number;
+export interface HTTPValidationError {
+  detail?: ValidationError[];
 }

@@ -19,5 +19,8 @@ gen:
     @just backend::gen
     bun run --filter frontend gen
 
+db-dev:
+    docker compose up
+
 studio:
     bun run --filter db db:pull && bun run --filter db studio

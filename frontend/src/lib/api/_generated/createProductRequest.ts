@@ -5,10 +5,10 @@
  * Backend API for FastAPI-Tanstack project
  * OpenAPI spec version: 1.0.0
  */
+import type { CreateProductRequestDescription } from "./createProductRequestDescription";
 
-export interface Product {
-  id: number;
+export interface CreateProductRequest {
   name: string;
-  description: string;
+  description?: CreateProductRequestDescription;
   price: number;
 }

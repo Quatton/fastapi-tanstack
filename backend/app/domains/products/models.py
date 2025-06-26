@@ -12,7 +12,7 @@ class Product(Base):
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True, default=uuid.uuid4)
     name: Mapped[str] = mapped_column(nullable=False)
-    description: Mapped[str | None] = mapped_column(nullable=True)
+    description: Mapped[str] = mapped_column(nullable=False, default="")
     price: Mapped[float] = mapped_column(nullable=False)
 
     def __repr__(self):

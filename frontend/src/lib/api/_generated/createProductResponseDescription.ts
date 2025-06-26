@@ -6,5 +6,4 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export * from "./listProductsResponse";
-export * from "./product";
+export type CreateProductResponseDescription = string | null;

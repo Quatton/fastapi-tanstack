@@ -1,9 +1,19 @@
-import prettierReact from "config/prettier:react";
-
 /**
  * @see https://prettier.io/docs/configuration
  * @type {import("prettier").Config}
  */
 export default {
-  ...prettierReact,
+  semi: true,
+  singleQuote: false,
+  tabWidth: 2,
+  useTabs: false,
+  trailingComma: "es5",
+  printWidth: 100,
+  bracketSpacing: true,
+  arrowParens: "always",
+  endOfLine: "lf",
+  bracketSameLine: false,
+  jsxSingleQuote: false,
+  plugins: ["prettier-plugin-tailwindcss"],
+  tailwindFunctions: ["clsx", "cn", "cva"],
 };

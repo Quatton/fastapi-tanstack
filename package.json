@@ -4,17 +4,20 @@
   "private": true,
   "workspaces": [
     "frontend",
-    "db",
-    "packages/**"
+    "db"
   ],
   "devDependencies": {
     "typescript": "^5.8.3"
   },
   "scripts": {
     "dev": "bun run --filter frontend dev",
-    "format": "bun run --filter './*/**' format"
+    "format": "bun run --filter ./*/** format"
   },
   "trustedDependencies": [
-    "@tailwindcss/oxide"
+    "@prisma/engines",
+    "@tailwindcss/oxide",
+    "esbuild",
+    "msw",
+    "prisma"
   ]
 }

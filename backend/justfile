@@ -17,7 +17,7 @@ clean:
     rm -rf *.egg-info
     find . -type d -name "__pycache__" -exec rm -rf {} +
 
-gen-schema:
+gen:
     uv run python -m scripts.schema
 
 db-push:
