@@ -1,0 +1,101 @@
+name: Backend Code linting
+
+on:
+  pull_request:
+    branches: ["**"]
+    paths:
+      - ".github/workflows/backend.yml"
+      - "backend/**"
+
+jobs:
+  ruff-format:
+    defaults:
+      run:
+        working-directory: backend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repository
+        uses: actions/checkout@v4
+
+      - name: Run Ruff format
+        uses: astral-sh/ruff-action@v3
+        with:
+          args: "format --check"
+
+  ruff-linter:
+    defaults:
+      run:
+        working-directory: backend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repository
+        uses: actions/checkout@v4
+
+      - name: Run Ruff linter
+        uses: astral-sh/ruff-action@v3
+        with:
+          args: "check"
+
+  mypy:
+    defaults:
+      run:
+        working-directory: backend
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+    steps:
+      - name: Check Out Repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Cache mypy
+        id: cache-mypy
+        uses: actions/cache@v4
+        with:
+          path: .mypy_cache
+          key: mypy-${{ runner.os }}-${{ github.sha }}
+          restore-keys: |
+            mypy-${{ runner.os }}-
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install the project
+        run: uv sync --all-extras --dev
+
+      - name: Check
+        run: uv run mypy . --config-file pyproject.toml
+
+  schema:
+    defaults:
+      run:
+        working-directory: backend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install the project
+        run: uv sync --all-extras --dev
+
+      - name: Check schema
+        run: uv run python -m scripts.schema
+
+      - name: Make sure there is no diff
+        run: |
+          git diff --exit-code || (echo "Schema files are not up to date. Please run 'uv run python -m scripts.schema' to update them." && exit 1)
