@@ -1,14 +1,18 @@
 set dotenv-load := true
 
+# パッケージをインストール
 install:
     uv sync
 
+# 開発サーバーを起動
 dev:
     uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
+# バックエンドコードフォーマット
 format:
     ruff format .
 
+# バックエンドコードリンと
 lint:
     ruff check .
 
@@ -17,8 +21,14 @@ clean:
     rm -rf *.egg-info
     find . -type d -name "__pycache__" -exec rm -rf {} +
 
+# スキーマを生成
 gen:
     uv run python -m scripts.schema
 
+# データベースに Alembic のマイグレーションを適用
 db-push:
     uv run alembic upgrade head
+
+# データベースのマイグレーションを新規作成
+db-migrate MESSAGE:
+    uv run alembic revision --autogenerate -m {{MESSAGE}}
